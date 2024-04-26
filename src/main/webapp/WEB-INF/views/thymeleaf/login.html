@@ -28,6 +28,9 @@
                 <h3 class="form-signin-heading">Taller Web I</h3>
                 <hr class="colorgraph"><br>
 
+                <p th:if="${name != null}" class="alert alert-danger" th:text="'nombre ' + ${name}">
+                </p>
+
                 <input th:field="*{email}" id="email" type="email" class="form-control" required/>
                 <input th:field="*{password}" type="password" id="password" class="form-control" required/>
 
