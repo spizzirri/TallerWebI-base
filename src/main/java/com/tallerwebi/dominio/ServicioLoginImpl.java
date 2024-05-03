@@ -1,4 +1,4 @@
-package com.tallerwebi.infraestructura;
+package com.tallerwebi.dominio;
 
 import com.tallerwebi.dominio.RepositorioUsuario;
 import com.tallerwebi.dominio.ServicioLogin;
@@ -17,6 +17,7 @@ public class ServicioLoginImpl implements ServicioLogin {
 
     @Autowired
     public ServicioLoginImpl(RepositorioUsuario repositorioUsuario){
+
         this.repositorioUsuario = repositorioUsuario;
     }
 
