@@ -56,7 +56,7 @@ public class RepositorioItemTest {
     @Test
     @Transactional
     @Rollback
-    public void queSePuedanObtenerSoloItemsDeTipoItemEscudo(){
+    public void queSePuedanObtenerSoloItemsDeTipoItemEscudoCuandoObtengoItemsPorTipoDeItem(){
         // preparacion
         dadoQueExistenItems();
 
