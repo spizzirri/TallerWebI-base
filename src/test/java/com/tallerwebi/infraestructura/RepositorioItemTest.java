@@ -82,8 +82,9 @@ public class RepositorioItemTest {
 
         // verificacion
         Item itemObtenido = (Item)this.sessionFactory.getCurrentSession()
-                .createQuery("FROM Item WHERE id = :id")
-                .setParameter("id", 1L)
+                .createQuery("FROM Item WHERE descripcion = :descripcion AND tipoItem = :tipoItem")
+                .setParameter("descripcion", descripcionEsperada)
+                .setParameter("tipoItem", TipoItem.ESCUDO)
                 .getSingleResult();
 
         assertThat(itemObtenido.getDescripcion(), equalTo(descripcionEsperada));
@@ -100,9 +101,10 @@ public class RepositorioItemTest {
     }
 
     private void dadoQueExistenItems() {
-        Item itemEspada = new Item(TipoItem.ESPADA, anyString());
-        Item itemEspada2 = new Item(TipoItem.ESPADA, anyString());
-        Item itemEscudo = new Item(TipoItem.ESCUDO, anyString());
+        String descripcionMock = "";
+        Item itemEspada = new Item(TipoItem.ESPADA, descripcionMock);
+        Item itemEspada2 = new Item(TipoItem.ESPADA, descripcionMock);
+        Item itemEscudo = new Item(TipoItem.ESCUDO, descripcionMock);
 
         this.sessionFactory.getCurrentSession().save(itemEspada);
         this.sessionFactory.getCurrentSession().save(itemEspada2);
