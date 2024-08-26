@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Conversor</title>
+
+    <!-- Boostrap core css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+
+    <!-- custom style -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body>
+    <main>
+        <section>
+            <article>
+                <form action="#" th:action="@{/resultado}" method="POST" th:object="${conversor}">
+                    <label for="pesos">
+                        PESOS:
+                        <input th:field="*{monedaInicial}" type="number" name="pesos" id="pesos">
+                    </label>
+                    <label for="dolar">
+                        DOLAR:
+                        <input th:field="*{monedaFinal}" type="number" name="dolar" id="dolar">
+                    </label>
+                    <button type="submit">Convertir</button>
+                </form>
+            </article>
+        </section>
+    </main>
+    <script th:src="@{/js/main.js}" type="module"></script>
+</body>
+</html>
