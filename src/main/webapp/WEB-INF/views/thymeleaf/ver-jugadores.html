@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Taller Web I</title>
+
+    <!-- Boostrap core css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+
+    <!-- custom style -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">UNLAM</a>
+</nav>
+
+<main role="main" class="container">
+
+    <div class = "container">
+        <div id="crear-jugador" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <form action="#" th:action="@{/ver-jugadores}" method="POST" th:object="${posicionDto}">
+                <h3 class="form-signin-heading">Taller Web I</h3>
+                <hr class="colorgraph"><br>
+                <select th:field="*{posicion}">
+                    <option th:each="opcion : ${T(com.tallerwebi.dominio.Posiciones).values()}" th:value="${opcion}" th:text="${opcion}"></option>
+                </select>
+                <button id="btn-login" class="btn btn-lg btn-primary btn-block" Type="Submit">Ver</button>
+            </form>
+            <table th:if="${jugadoresDto.size() > 0}">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Número</th>
+                    <th>Posición</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="jugador: ${jugadoresDto}">
+                    <td th:text="${jugador.nombre}"></td>
+                    <td th:text="${jugador.numero}"></td>
+                    <td th:text="${jugador.posicion}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<!-- /.container -->
+
+<!-- Boostrap core js -->
+<script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+</body>
+</html>
